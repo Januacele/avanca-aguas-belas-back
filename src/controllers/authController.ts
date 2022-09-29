@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import authService from "../services/authService";
+import authService from "../services/authService.js";
 
 export async function signUp(req: Request, res: Response){
     const user = req.body;

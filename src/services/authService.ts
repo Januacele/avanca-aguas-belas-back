@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ICreateUserData } from "../typesInterfaces/userTypes";
-import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils";
-import * as authRepository from "../repositories/authRepository";
+import { ICreateUserData } from "../typesInterfaces/userTypes.js";
+import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils.js";
+import * as authRepository from "../repositories/authRepository.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import "../setup";
+import "../setup.js";
 
 
 async function createUser(user:ICreateUserData) {
