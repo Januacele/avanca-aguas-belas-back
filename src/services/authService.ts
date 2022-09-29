@@ -30,7 +30,7 @@ async function checkLogin(login:ICreateUserData) {
 
 async function login(login: ICreateUserData){
     const user = await checkLogin(login);
-    const token = jwt.sign({ userId: user.id }, (process.env.JWT_SECRET)!);
+    const token = jwt.sign({ userId: user.id }, (process.env.JWT_KEY)!);
 
     return token;
 }
