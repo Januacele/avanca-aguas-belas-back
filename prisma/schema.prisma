@@ -22,3 +22,10 @@ model User {
 
   @@map("user")
 }
+
+model Streats {
+  id         Int    @id @default(autoincrement())
+  streatName String
+
+  @@map("streats")
+}
