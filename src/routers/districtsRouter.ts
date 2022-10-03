@@ -1,0 +1,21 @@
+import { Router } from "express";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import * as districtNameSchema from "../schemas/districtsSchema";
+import * as districtsController from "../controllers/districtsController";
+
+const districtsRouter = Router();
+
+districtsRouter.post("/district", 
+validateSchemaMiddleware(districtNameSchema.districtNameSchema),
+districtsController.creatDistrictName);
+
+districtsRouter.get("/districts", districtsController.getDistrictName);
+
+districtsRouter.get("/district/:id", districtsController.getDistrictNameById);
+
+districtsRouter.patch("/district/:id", districtsController.updateDistrictName);
+
+districtsRouter.delete("/district/:id", districtsController.deleteDistrictName);
+
+
+export default districtsRouter;

@@ -24,8 +24,18 @@ model User {
 }
 
 model Streats {
-  id         Int    @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   streatName String
+  district   Districts @relation(fields: [districtId], references: [id])
+  districtId Int
 
   @@map("streats")
+}
+
+model Districts {
+  id           Int       @id @default(autoincrement())
+  districtName String
+  streats      Streats[]
+
+  @@map("districts")
 }

@@ -1,4 +1,4 @@
-import prisma from "../database.js";
+import { prisma } from "../database.js";
 import { ICreateUserData } from "../typesInterfaces/userTypes";
 
 export async function insertUser(user: ICreateUserData) {
