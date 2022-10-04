@@ -25,10 +25,15 @@ import {
   }
 
 
+  async function getStreatsName() {
+    return await streatsRepository.findAllStreats();
+
+  }
 
 
   const streatService = {
-    createStreatName
+    createStreatName,
+    getStreatsName
   };
   
   export default streatService;
