@@ -13,7 +13,7 @@ streatRouter.post("/streat",
 validateSchemaMiddleware(streatSchema.streatNameSchema),
 streatController.creatStreatName);
 
-
+streatRouter.get("/streats", streatController.getStreatName);
 
 
 export default streatRouter;
