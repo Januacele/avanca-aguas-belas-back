@@ -1,4 +1,3 @@
-import {Districts} from "@prisma/client";
 import { IDistricts } from "../typesInterfaces/districtTypes";
 import districtsRepository from "../repositories/districtsRepository.js";
 import {
@@ -42,10 +41,10 @@ import {
 }
 
 
-async function deleteDistrictName(districts: Districts){
-    const verifyStreatById = await districtsRepository.findDistrictById(districts.id);
+async function deleteDistrictName(districtId: number){
+    const verifyStreatById = await districtsRepository.findDistrictById(districtId);
     if (!verifyStreatById) throw notFoundError("User not found");
-    await districtsRepository.deleteDistrictName(districts.id);
+    await districtsRepository.deleteDistrictName(districtId);
 }
 
 

@@ -41,7 +41,7 @@ async function updateDistrictName(districtId: number, name: string){
 }
 
 async function deleteDistrictName(id: number){
-    return prisma.streats.delete({
+    return prisma.districts.delete({
       where: {
         id
       }
