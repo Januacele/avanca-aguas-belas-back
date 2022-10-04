@@ -35,15 +35,15 @@ import {
   }
 
   async function updateDistrictName(districtId: number, name: string){
-    const verifyStreatById = await districtsRepository.findDistrictById(districtId);
-    if (!verifyStreatById) throw notFoundError("User not found");
+    const verifyDistrictById = await districtsRepository.findDistrictById(districtId);
+    if (!verifyDistrictById) throw notFoundError("User not found");
     await districtsRepository.updateDistrictName(districtId, name);
 }
 
 
 async function deleteDistrictName(districtId: number){
-    const verifyStreatById = await districtsRepository.findDistrictById(districtId);
-    if (!verifyStreatById) throw notFoundError("User not found");
+    const verifyDistrictById = await districtsRepository.findDistrictById(districtId);
+    if (!verifyDistrictById) throw notFoundError("User not found");
     await districtsRepository.deleteDistrictName(districtId);
 }
 
