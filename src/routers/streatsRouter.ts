@@ -15,5 +15,6 @@ streatController.creatStreatName);
 
 streatRouter.get("/streats", streatController.getStreatName);
 
+streatRouter.get("/streat/:id", streatController.getStreatsNameById);
 
 export default streatRouter;

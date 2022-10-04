@@ -14,3 +14,14 @@ export async function getStreatName(req: Request, res: Response) {
   const getAllStreats = await streatService.getStreatsName();
   res.status(200).send(getAllStreats);
 };
+
+
+export async function getStreatsNameById(req: Request, res: Response) {
+  const streatId = parseInt(req.params.id);
+  
+  if(isNaN(streatId)){
+    res.status(422).send("Id must be a number");
+  }
+  const getStreatId = await streatService.getStreatsById(streatId);
+  res.status(200).send(getStreatId);
+};
