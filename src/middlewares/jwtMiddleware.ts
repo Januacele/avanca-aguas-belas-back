@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import "../database";
+import "../database.js";
 
 import authService from "../services/authService.js";
 import { unauthorizedError } from "../utils/errorUtils.js";
@@ -14,7 +14,7 @@ export async function jwtAutenticateMiddleware(req: Request, res: Response, next
         if (!token) throw unauthorizedError("Missing token");
         
         try {
-            const SECRET: string | any = process.env.JWT_SECRET;
+            const SECRET: string | any = process.env.JWT_KEY;
             const { userId } = jwt.verify(token, SECRET) as { userId: number };
             const user = await authService.findUserById(userId);
             res.locals.user = user;
