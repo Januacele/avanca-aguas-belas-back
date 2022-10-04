@@ -25,3 +25,15 @@ export async function getStreatsNameById(req: Request, res: Response) {
   const getStreatId = await streatService.getStreatsById(streatId);
   res.status(200).send(getStreatId);
 };
+
+
+export async function updateStrictName(req: Request, res: Response) {
+  const streatId = parseInt(req.params.id);
+  const newStreatNameOrDistrict = req.body;
+
+  if(isNaN(streatId)){
+    res.status(422).send("Id must be a number");
+  }
+  const updateStreat = await streatService.updateStreatstName(streatId, newStreatNameOrDistrict);
+  res.status(200).send(updateStreat);
+};
