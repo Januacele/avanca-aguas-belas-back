@@ -1,5 +1,4 @@
+import { Districts } from "@prisma/client";
 
 
-export type IRegisterDistrictsNames = {
-    districtName: string
-}
+export type IDistricts = Omit<Districts, 'id'>

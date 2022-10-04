@@ -1,5 +1,5 @@
 import {Districts} from "@prisma/client";
-// import {IRegisterDistrictsNames} from "../typesInterfaces/districtTypes.js";
+import { IDistricts } from "../typesInterfaces/districtTypes";
 import districtsRepository from "../repositories/districtsRepository.js";
 import {
     conflictError,
@@ -8,12 +8,16 @@ import {
 
 
 
-  async function createDistrictName(districts: Districts) {
+  async function createDistrictName(districts: IDistricts) {
     
-    const existisStreats = await districtsRepository.findDistrictById(districts.id);
-    if (existisStreats) throw conflictError("User already exist");
-  
-    await districtsRepository.insertDistrict({ ...districts });
+    const existsDistrict = await districtsRepository.findByName(districts.districtName);
+    if (existsDistrict) throw conflictError("User already exist");
+    
+    const insertData : IDistricts = {
+      districtName: districts.districtName
+    };
+
+    await districtsRepository.insertDistrict(insertData);
   }
 
 

@@ -1,7 +1,6 @@
 import { prisma } from "../database.js";
-import { Districts } from "@prisma/client";
+//import { IDistricts } from "../typesInterfaces/districtTypes";
 
-export type IDistricts = Omit<Districts, 'id'>
 
 async function insertDistrict(districts:any) {
     return prisma.districts.create({
@@ -10,14 +9,13 @@ async function insertDistrict(districts:any) {
 }
 
 
-async function findByName(districtName: string) {
-  return prisma.districts.findUnique({
-    where: { 
+async function findByName (districtName: string ) {
+  return await prisma.districts.findFirst({
+    where: {
       districtName
-    },
+    }
   });
-
-}
+}; 
 
 
 async function findAllDistricts() {
@@ -34,14 +32,14 @@ async function findDistrictById(id: number) {
 }
 
 
-async function updateDistrictName(idData: Districts, nameData: Districts){
-    return prisma.streats.update({
-      where: {
-        id: idData.id,
-      },
-      districtName: nameData.districtName
-    });
-}
+// async function updateDistrictName(idData: Districts, nameData: Districts){
+//     return prisma.streats.update({
+//       where: {
+//         id: idData.id,
+//       },
+//       districtName: nameData.districtName
+//     });
+// }
 
 async function deleteDistrictName(id: number){
     return prisma.streats.delete({
@@ -57,7 +55,7 @@ const districtsRepository = {
   findByName,
   findAllDistricts,
   findDistrictById,
-  updateDistrictName,
+  // updateDistrictName,
   deleteDistrictName
 };
 
