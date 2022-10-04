@@ -19,12 +19,12 @@ async function findByName (districtName: string ) {
 
 
 async function findAllDistricts() {
-    return prisma.streats.findMany();
+    return prisma.districts.findMany();
 };
 
 
 async function findDistrictById(id: number) {
-    return prisma.streats.findUnique({
+    return prisma.districts.findUnique({
       where: {
         id,
       },

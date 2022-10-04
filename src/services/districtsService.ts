@@ -22,9 +22,8 @@ import {
 
 
   async function getDistrictsName() {
-    const verifyStreats = await districtsRepository.findAllDistricts();
+    return await districtsRepository.findAllDistricts();
 
-    return verifyStreats;
   }
 
 
