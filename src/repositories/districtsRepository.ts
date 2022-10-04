@@ -23,11 +23,11 @@ async function findAllDistricts() {
 };
 
 
-async function findDistrictById(id: number) {
-    return prisma.districts.findUnique({
+async function findDistrictById(districtId: number) {
+    return prisma.districts.findFirst({
       where: {
-        id,
-      },
+          id: districtId
+      } 
     });
 }
 

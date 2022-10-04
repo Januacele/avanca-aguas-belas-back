@@ -15,10 +15,15 @@ export async function getDistrictName(req: Request, res: Response) {
 }
 
 export async function getDistrictNameById(req: Request, res: Response) {
-  const districtId : any = parseInt(req.params.id);
+  const districtId = parseInt(req.params.id);
+  
+  if(isNaN(districtId)){
+    res.status(422).send("Id must be a number");
+  }
 
-  await districtService.getDistrictById(districtId);
-  res.sendStatus(201);
+  const getDistrictId = await districtService.getDistrictById(districtId);
+  
+  res.status(200).send(getDistrictId);
 }
 
 // export async function updateDistrictName(req: Request, res: Response) {

@@ -27,11 +27,12 @@ import {
   }
 
 
-  async function getDistrictById(districts: Districts) {
-    const verifyStreatById = await districtsRepository.findDistrictById(districts.id);
-    if (!verifyStreatById) throw notFoundError("User not found");
+  async function getDistrictById(districtId: number) {
+    const verifyDistrictId = await districtsRepository.findDistrictById(districtId);
+    if (!verifyDistrictId) throw notFoundError("District not found");
   
-    return verifyStreatById;
+    return verifyDistrictId;
+    
   }
 
 //   async function updateDistrictName(districts: Districts){
