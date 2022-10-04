@@ -35,11 +35,11 @@ import {
     
   }
 
-//   async function updateDistrictName(districts: Districts){
-//     const verifyStreatById = await districtsRepository.findDistrictById(districts.id);
-//     if (!verifyStreatById) throw notFoundError("User not found");
-//     await districtsRepository.updateDistrictName(districts.id, districts.districtName);
-// }
+  async function updateDistrictName(districtId: number, name: string){
+    const verifyStreatById = await districtsRepository.findDistrictById(districtId);
+    if (!verifyStreatById) throw notFoundError("User not found");
+    await districtsRepository.updateDistrictName(districtId, name);
+}
 
 
 async function deleteDistrictName(districts: Districts){
@@ -53,7 +53,7 @@ async function deleteDistrictName(districts: Districts){
     createDistrictName,
     getDistrictsName,
     getDistrictById,
-    // updateDistrictName,
+    updateDistrictName,
     deleteDistrictName
   };
   

@@ -13,7 +13,7 @@ districtsRouter.get("/districts", districtsController.getDistrictName);
 
 districtsRouter.get("/district/:id", districtsController.getDistrictNameById);
 
-// districtsRouter.patch("/district/:id", districtsController.updateDistrictName);
+districtsRouter.patch("/district/:id", districtsController.updateDistrictName);
 
 districtsRouter.delete("/district/:id", districtsController.deleteDistrictName);
 

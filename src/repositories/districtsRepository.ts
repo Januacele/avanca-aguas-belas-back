@@ -1,5 +1,4 @@
 import { prisma } from "../database.js";
-//import { IDistricts } from "../typesInterfaces/districtTypes";
 
 
 async function insertDistrict(districts:any) {
@@ -32,14 +31,14 @@ async function findDistrictById(districtId: number) {
 }
 
 
-// async function updateDistrictName(idData: Districts, nameData: Districts){
-//     return prisma.streats.update({
-//       where: {
-//         id: idData.id,
-//       },
-//       districtName: nameData.districtName
-//     });
-// }
+async function updateDistrictName(districtId: number, name: string){
+    return prisma.districts.update({
+      where: {
+        id: districtId
+      },
+        data:name
+    });
+}
 
 async function deleteDistrictName(id: number){
     return prisma.streats.delete({
@@ -55,7 +54,7 @@ const districtsRepository = {
   findByName,
   findAllDistricts,
   findDistrictById,
-  // updateDistrictName,
+  updateDistrictName,
   deleteDistrictName
 };
 

@@ -26,12 +26,17 @@ export async function getDistrictNameById(req: Request, res: Response) {
   res.status(200).send(getDistrictId);
 }
 
-// export async function updateDistrictName(req: Request, res: Response) {
-//   const districtId : any = parseInt(req.params.id);
+export async function updateDistrictName(req: Request, res: Response) {
+  const districtId = parseInt(req.params.id);
+  const newDistrictName = req.body;
+  if(isNaN(districtId)){
+    res.status(422).send("Id must be a number");
+  }
 
-//   await districtService.updateDistrictName(districtId);
-//   res.sendStatus(201);
-// }
+  const updateDistrict = await districtService.updateDistrictName(districtId, newDistrictName);
+
+  res.status(200).send(updateDistrict);
+}
 
 export async function deleteDistrictName(req: Request, res: Response) {
   const districtId : any = parseInt(req.params.id);
