@@ -21,4 +21,5 @@ districtsRouter.patch("/district/:id", districtsController.updateDistrictName);
 districtsRouter.delete("/district/:id", districtsController.deleteDistrictName);
 
 
+
 export default districtsRouter;
