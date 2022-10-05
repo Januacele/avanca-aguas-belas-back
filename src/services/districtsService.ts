@@ -17,13 +17,12 @@ import {
     };
 
     await districtsRepository.insertDistrict(insertData);
-  }
+  };
 
 
   async function getDistrictsName() {
     return await districtsRepository.findAllDistricts();
-
-  }
+  };
 
 
   async function getDistrictById(districtId: number) {
@@ -31,21 +30,20 @@ import {
     if (!verifyDistrictId) throw notFoundError("District not found");
   
     return verifyDistrictId;
-    
-  }
+  };
 
   async function updateDistrictName(districtId: number, name: string){
     const verifyDistrictById = await districtsRepository.findDistrictById(districtId);
     if (!verifyDistrictById) throw notFoundError("User not found");
     await districtsRepository.updateDistrictName(districtId, name);
-}
+  };
 
 
 async function deleteDistrictName(districtId: number){
     const verifyDistrictById = await districtsRepository.findDistrictById(districtId);
     if (!verifyDistrictById) throw notFoundError("User not found");
     await districtsRepository.deleteDistrictName(districtId);
-}
+  };
 
 
   const districtService = {
