@@ -24,10 +24,11 @@ model User {
 }
 
 model Streats {
-  id         Int       @id @default(autoincrement())
-  streatName String    @unique
-  district   Districts @relation(fields: [districtId], references: [id])
-  districtId Int
+  id                 Int                  @id @default(autoincrement())
+  streatName         String               @unique
+  district           Districts            @relation(fields: [districtId], references: [id])
+  districtId         Int
+  streatsInformation StreatsInformation[]
 
   @@map("streats")
 }
@@ -38,4 +39,18 @@ model Districts {
   streats      Streats[]
 
   @@map("districts")
+}
+
+model StreatsInformation {
+  id                  Int     @id @default(autoincrement())
+  totalArea           Float
+  hasBasicSanitation  Boolean
+  hasAsphalt          Boolean
+  hasPaving           Boolean
+  hasStreetLighting   Boolean
+  hasCleanWaterAccess Boolean
+  streats             Streats @relation(fields: [streatId], references: [id])
+  streatId            Int
+
+  @@map("streatsInformation")
 }
