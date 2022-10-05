@@ -37,3 +37,14 @@ export async function updateStrictName(req: Request, res: Response) {
   const updateStreat = await streatService.updateStreatstName(streatId, newStreatNameOrDistrict);
   res.status(200).send(updateStreat);
 };
+
+
+export async function deleteStreatName(req: Request, res: Response) {
+  const streatId = parseInt(req.params.id);
+
+  if(isNaN(streatId)){
+    res.status(422).send("Id must be a number");
+  }
+  const deleteStreat = await streatService.deleteDistrictName(streatId);
+  res.status(200).send(deleteStreat);
+};
