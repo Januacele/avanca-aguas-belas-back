@@ -55,3 +55,17 @@ model StreatsInformation {
 
   @@map("streatsInformation")
 }
+
+model DistrictsInformation {
+  id                Int       @id @default(autoincrement())
+  hasHospital       Boolean
+  hasPark           Boolean
+  hasHealthCenter   Boolean
+  hasSecurityCenter Boolean
+  hasSchool         Boolean
+  hasKindergartens  Boolean
+  districts         Districts @relation(fields: [districtId], references: [id])
+  districtId        Int
+
+  @@map("districtsInformation")
+}
