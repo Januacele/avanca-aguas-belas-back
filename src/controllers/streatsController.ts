@@ -27,7 +27,7 @@ export async function getStreatsNameById(req: Request, res: Response) {
 };
 
 
-export async function updateStrictName(req: Request, res: Response) {
+export async function updateStreatName(req: Request, res: Response) {
   const streatId = parseInt(req.params.id);
   const newStreatNameOrDistrict = req.body;
 
