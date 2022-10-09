@@ -34,16 +34,17 @@ model Streats {
 }
 
 model Districts {
-  id           Int       @id @default(autoincrement())
-  districtName String    @unique
-  streats      Streats[]
+  id                   Int                    @id @default(autoincrement())
+  districtName         String                 @unique
+  streats              Streats[]
+  districtsInformation DistrictsInformation[]
 
   @@map("districts")
 }
 
 model StreatsInformation {
   id                  Int     @id @default(autoincrement())
-  totalArea           Float
+  totalArea           Int
   hasBasicSanitation  Boolean
   hasAsphalt          Boolean
   hasPaving           Boolean
