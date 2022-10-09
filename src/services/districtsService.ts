@@ -3,7 +3,7 @@ import districtsRepository from "../repositories/districtsRepository.js";
 import {
     conflictError,
     notFoundError,
-  } from "../utils/errorUtils.js";
+} from "../utils/errorUtils.js";
 
 
 
