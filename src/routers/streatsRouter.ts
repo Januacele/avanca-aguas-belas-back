@@ -17,6 +17,8 @@ streatRouter.get("/streats", streatController.getStreatName);
 
 streatRouter.get("/streat/:id", streatController.getStreatsNameById);
 
-streatRouter.patch("/streat/:id", streatController.updateStrictName);
+streatRouter.patch("/streat/:id", streatController.updateStreatName);
+
+streatRouter.delete("/streat/:id", streatController.deleteStreatName);
 
 export default streatRouter;
