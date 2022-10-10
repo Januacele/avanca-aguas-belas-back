@@ -46,7 +46,7 @@ async function updateDistrictInformation(districtId: number, information: IDistr
 const districtInformationService = {
     createDistrictInformation,
     getDistrictInfo,
-    updateDistrictInformation
+    updateDistrictInformation,
 };
   
 
