@@ -24,7 +24,7 @@ export async function getDistrictInfo(req: Request, res: Response) {
 
 
 export async function updateDistrictInformation(req: Request, res: Response) {
-    const districtId = parseInt(req.params.id);
+    const districtId: number = parseInt(req.params.id);
     const newDistrictInformation = req.body;
   
     if(isNaN(districtId)){
@@ -33,3 +33,4 @@ export async function updateDistrictInformation(req: Request, res: Response) {
     const updateDistrictInformation = await districtInformationService.updateDistrictInformation(districtId, newDistrictInformation);
     res.status(200).send(updateDistrictInformation);
 };
+
