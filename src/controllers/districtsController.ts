@@ -17,7 +17,7 @@ export async function getDistrictName(req: Request, res: Response) {
 
 
 export async function getDistrictNameById(req: Request, res: Response) {
-  const districtId = parseInt(req.params.id);
+  const districtId: number = parseInt(req.params.id);
   
   if(isNaN(districtId)){
     res.status(422).send("Id must be a number");
@@ -28,7 +28,7 @@ export async function getDistrictNameById(req: Request, res: Response) {
 
 
 export async function updateDistrictName(req: Request, res: Response) {
-  const districtId = parseInt(req.params.id);
+  const districtId: number = parseInt(req.params.id);
   const newDistrictName = req.body;
 
   if(isNaN(districtId)){
@@ -40,7 +40,7 @@ export async function updateDistrictName(req: Request, res: Response) {
 
 
 export async function deleteDistrictName(req: Request, res: Response) {
-  const districtId = parseInt(req.params.id);
+  const districtId: number = parseInt(req.params.id);
 
   if(isNaN(districtId)){
     res.status(422).send("Id must be a number");
