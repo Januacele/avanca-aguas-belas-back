@@ -34,11 +34,12 @@ async function update(districtId: number, informations: IDistrictsInformation){
 }
 
 
+
 const districtInformationRepository = {
     insertData,
     findById,
     findDistrictInfos,
-    update
+    update,
   };
   
   export default districtInformationRepository;
