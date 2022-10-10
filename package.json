@@ -10,10 +10,11 @@
     "dev": "nodemon src/server.ts",
     "prisma": "prisma migrate dev",
     "test:integration": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i --testPathPattern=tests/integration",
-    "test:unit": "dotenv -e .env.test prisma migrate dev && prisma db seed && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
+    "test:unit": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "prettier": "npx prettier --write ."
+     
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -28,7 +29,7 @@
     "cors": "^2.8.5",
     "crypt": "^0.0.2",
     "cryptr": "^6.0.3",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "joi": "^17.6.1",
